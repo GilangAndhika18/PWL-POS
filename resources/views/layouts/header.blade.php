@@ -132,6 +132,14 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li>
+      <li class="nav-item">
+             <form action="{{ route('logout') }}" method="POST" id="logout-form">
+                 @csrf <!-- CSRF protection to prevent attacks -->
+                 <button type="submit" class="btn btn-danger btn-block text-center">
+                     Logout
+                 </button>
+             </form>
+         </li>
     </ul>
   </nav>
   <!-- /.navbar -->
