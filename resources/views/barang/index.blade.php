@@ -5,6 +5,16 @@
         <div class="card-header">
             <h3 class="card-title">{{ $page->title }}</h3>
             <div class="card-tools">
+                <a href="{{ url('/barang/export_pdf') }}" class="btn btn-warning">
+                    <i class="fa fa-file-pdf"></i> Export Barang
+                </a>
+                <a href="{{ url('/barang/export_excel') }}" class="btn btn-primary">
+                    <i class="fa fa-file-excel"></i> Export Barang
+                </a>
+                <button
+                onclick="modalAction('{{ url ('/barang/import')}}')" class="btn btn-info">
+                Import Barang          
+                </button>
                 <a class="btn btn-sm btn-primary mt-1" href="{{ url('barang/create') }}">Tambah</a>
                 <button 
                     onclick="modalAction('{{ url('/barang/create_ajax') }}')" 
@@ -63,47 +73,55 @@
                 columns: [{
                         data: "DT_RowIndex",
                         className: "text-center",
+                        width: "5%",
                         orderable: false,
                         searchable: false
                     },
                     {
                         data: "barang_kode",
                         className: "",
+                        width: "10%",
                         orderable: true,
                         searchable: true
                     },
                     {
                         data: "barang_nama",
                         className: "",
+                        width: "37%",
                         orderable: true,
                         searchable: true
                     },
                     {
                         data: "kategori.kategori_nama",
                         className: "",
+                        width: "14%",
                         orderable: true,
                         searchable: true
                     },
                     {
                         data: "harga_beli",
                         className: "text-right",
+                        width: "10%",
                         orderable: true,
                         searchable: false
                     },
                     {
                         data: "harga_jual",
                         className: "text-right",
+                        width: "10%",
                         orderable: true,
                         searchable: false
                     },
                     {
                         data: "aksi",
                         className: "text-center",
+                        width: "14%",
                         orderable: false,
                         searchable: false
                     }
                 ]
             });
+
 
             $('#kategori_id').on('change', function() {
                 dataBarang.ajax.reload();
